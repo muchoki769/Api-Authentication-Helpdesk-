@@ -2,10 +2,10 @@ import Config
 
 # Configure your database
 config :helpdesk, Helpdesk.Repo,
-  username: "davidmuchoki",
-  password: "lyric",
-  hostname: "localhost",
-  database: "postgres",
+  username: "",
+  password: "",
+  hostname: "",
+  database: "",
   port: 5432,
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
