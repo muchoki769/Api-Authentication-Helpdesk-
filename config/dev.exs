@@ -3,7 +3,7 @@ import Config
 # Configure your database
 config :helpdesk, Helpdesk.Repo,
   username: "davidmuchoki",
-  password: "lyric",
+  password: "",
   hostname: "localhost",
   database: "helpdesk_dev",
   port: 5432,
