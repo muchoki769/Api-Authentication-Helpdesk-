@@ -1,4 +1,4 @@
-defmodule HelpdeskWeb.AuthController do
+defmodule HelpdeskWeb.Auth_Controller do
   use HelpdeskWeb, :controller
   use AshAuthentication.Phoenix.Controller
 

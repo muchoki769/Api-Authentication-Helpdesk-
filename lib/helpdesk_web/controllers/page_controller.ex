@@ -6,4 +6,8 @@ defmodule HelpdeskWeb.PageController do
     # so skip the default app layout.
     render(conn, :home, layout: false)
   end
+
+  def users(conn, _params) do
+    render(conn, :users, layout: false)
+  end
 end

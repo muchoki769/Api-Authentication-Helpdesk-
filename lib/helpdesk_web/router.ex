@@ -22,12 +22,33 @@ defmodule HelpdeskWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+    get "/users", PageController, :users
+
+   live "/health",HealthLive
+   live "/helpdesk", HelpdeskLive
+
 
     sign_in_route(register_path: "/register", reset_path: "/reset")
-    sign_out_route AuthController
-    auth_routes_for Helpdesk.Accounts.User, to: AuthController
-    reset_route [layout: {HelpdeskWeb, :live}]
+    #  overrides: [HelpdeskWeb.AuthOverrides, AshAuthentication.Phoenix.Overrides.Default])
+    sign_out_route Auth_Controller
+    auth_routes_for Helpdesk.Accounts.User, to: Auth_Controller
+    reset_route(layout: {HelpdeskWeb, :live})
+    # overrides: [HelpdeskWeb.AuthOverrides, AshAuthentication.Phoenix.Overrides.Default])
   end
+
+  # scope "/", HelpdeskWeb do
+  #   ash_authentication_live_session :authentication_required,
+  #   on_mount: {HelpdeskWeb.LiveUserAuth, :live_user_required} do
+  #     live "/protected_route", ProjectLive.Index, :index
+  #   end
+
+  #   ash_authentication_live_session :authentication_optional,
+  #   on_mount: {HelpdeskWeb.LiveUserAuth, :live_user_optional} do
+  #     live "/", ProjectLive.Index, :index
+
+  #      sign_in_route(on_mount: [{HelpdeskWeb.LiveUserAuth, :live_no_user}])
+  #   end
+  # end
 
   scope "/api/json" do
     pipe_through(:api)

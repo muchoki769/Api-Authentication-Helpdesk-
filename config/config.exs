@@ -8,7 +8,7 @@
 import Config
 
 config :helpdesk, :token_signing_secret, "some_super_secret_random_value"
-config :helpdesk, :ash_domains, [Helpdesk.Support, Helpdesk.Health, Helpdesk.Accounts]
+config :helpdesk, :ash_domains, [Helpdesk.Health, Helpdesk.Accounts, Helpdesk.Support]
 config :ash, :include_embedded_source_by_default?, true
 
 config :mime,
